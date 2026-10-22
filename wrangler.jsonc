@@ -13,7 +13,7 @@
       "binding": "DB",
       "database_name": "yearbook-hub",
       // Paste your D1 Database ID between the quotes (SETUP.md, step 2):
-      "database_id": "PASTE_YOUR_DATABASE_ID_HERE"
+      "database_id": "9fbca483-09cf-4948-8560-9edda37f4aee"
     }
   ]
 }
