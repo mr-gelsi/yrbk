@@ -50,7 +50,7 @@ async function showLogin() {
     <p class="muted">Sign in to track your pages.</p>
     <div id="studentFields">
       <label for="lname">Your name</label>
-      <select id="lname" required><option value="">Choose your name…</option>${S.names.map((n) => `<option>${esc(n)}</option>`).join("")}</select>
+      <select id="lname"><option value="">Choose your name…</option>${S.names.map((n) => `<option>${esc(n)}</option>`).join("")}</select>
       <label for="lcode">Class code</label>
       <input id="lcode" type="password" autocomplete="off">
     </div>
