@@ -1,0 +1,19 @@
+{
+  // The name must match the project name you pick in Cloudflare (see SETUP.md, step 3).
+  "name": "yearbook-hub",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yearbook-hub",
+      // Paste your D1 Database ID between the quotes (SETUP.md, step 2):
+      "database_id": "PASTE_YOUR_DATABASE_ID_HERE"
+    }
+  ]
+}
