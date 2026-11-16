@@ -62,6 +62,8 @@ async function showLogin() {
   $("#toggleAdv").onclick = () => { adv = !adv; $("#advField").classList.toggle("hidden", !adv); $("#studentFields").classList.toggle("hidden", adv); $("#toggleAdv").textContent = adv ? "I'm a student" : "I'm the advisor"; };
   $("#lf").onsubmit = async (e) => {
     e.preventDefault();
+    if (!adv && !$("#lname").value) { $("#lerr").textContent = "Choose your name first."; return; }
+    if (adv && !$("#ladv").value) { $("#lerr").textContent = "Type your advisor passcode."; return; }
     const c = adv ? { advisor: $("#ladv").value } : { name: $("#lname").value, code: $("#lcode").value };
     localStorage.setItem("yh-creds", JSON.stringify(c));
     const res = await api("login", {});
@@ -310,7 +312,7 @@ function proofCard(p, step) {
   if (!rec.proofer) {
     if (isAdv()) actions = '<span class="muted small">Waiting for a student to claim</span>';
     else if (isAssignee) actions = '<span class="muted small">This is your page, so someone else will proof it.</span>';
-    else if (earlier.includes(me)) actions = '<span class="muted small">You proofed this page in an earlier step.</span>';
+    else if (earlier.includes(me) && !meR?.editor) actions = '<span class="muted small">You proofed this page in an earlier step.</span>';
     else if (step === "editor" && !meR?.editor) actions = '<span class="muted small">Editors only</span>';
     else actions = `<button class="btn red sm" data-proof="claim" data-page="${p.num}" data-step="${step}">Proof this page</button>`;
   } else {
