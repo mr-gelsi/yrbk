@@ -138,7 +138,8 @@ export default {
             if (rec.proofer) return fail(`Already being proofed by ${rec.proofer}.`);
             if (isAssignee) return fail("You can't proof a page you're assigned to.");
             const earlier = STEPS.slice(0, STEPS.indexOf(step)).map((s) => page.proof[s]?.proofer);
-            if (earlier.includes(user.name)) return fail("Choose a different proofer than the earlier steps.");
+            // Editors may proof at any step, even a page they already proofed earlier. Other students need a different person each step.
+            if (!me?.editor && earlier.includes(user.name)) return fail("Choose a different proofer than the earlier steps.");
             if (step === "editor" && !me?.editor) return fail("Only editors can do the Editor Proof.");
             page.proof[step] = { proofer: user.name, notes: "", fixed: false, at: Date.now() };
             break;
