@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yearbook Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="login" class="login hidden"></div>
+  <div id="shell" class="shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">📖 YEARBOOK<br>HUB</div>
+      <nav id="nav"></nav>
+      <div class="side-foot">Yearbook Class<br>Production Hub</div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
+        <strong>Yearbook Hub Command Center</strong>
+        <span class="spacer"></span>
+        <span id="who" class="who"></span>
+        <button id="signout" class="link-btn">Sign out</button>
+        <span id="sync" class="pill ok">✓ Synced</span>
+      </header>
+      <main id="view" class="view"></main>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
